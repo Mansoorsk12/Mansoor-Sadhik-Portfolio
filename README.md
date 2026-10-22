@@ -13,7 +13,7 @@ I'm a Computer Science Engineering graduate of the 2026 batch, passionate about 
 - **Role:** Full Stack Developer
 - **Primary Technologies:** Java, React.js, JavaScript
 - **Frontend:** HTML, CSS, JavaScript, React.js
-- **Backend:** Core Java, Node.js, Express.js
+- **Backend:** Core Java, Node.js
 - **Database:** MongoDB, SQL
 - **Interests:** Full Stack Development, Backend Engineering, AI Tools
 
