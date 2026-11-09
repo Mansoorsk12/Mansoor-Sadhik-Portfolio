@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useState, useEffect } from "react";
+
 import {
   motion,
   MotionConfig,
@@ -137,6 +138,7 @@ function App() {
     [copyError, setCopyError] = useState(false),
     [terminal, setTerminal] = useState("about"),
     [scrolled, setScrolled] = useState(false);
+    
   const [effects, setEffects] = useState(() => {
     try {
       return localStorage.getItem("canvas-effects") !== "off";
@@ -145,6 +147,18 @@ function App() {
     }
   });
   const reduced = useReducedMotion();
+  const [darkMode, setDarkMode] = useState(() => {
+  return localStorage.getItem("theme") === "dark";
+});
+
+useEffect(() => {
+  document.documentElement.setAttribute(
+    "data-theme",
+    darkMode ? "dark" : "light"
+  );
+
+  localStorage.setItem("theme", darkMode ? "dark" : "light");
+}, [darkMode]);
   const { scrollYProgress } = useScroll();
   const [showScene, setShowScene] = useState(false);
 
@@ -279,6 +293,13 @@ function App() {
               {x}
             </a>
           ))}
+          <button
+  className="theme-toggle"
+  onClick={() => setDarkMode(!darkMode)}
+  aria-label="Toggle theme"
+>
+  {darkMode ? "☀️" : "🌙"}
+</button>
         </nav>
         <div className="nav-actions">
           <button
